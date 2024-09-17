@@ -27,5 +27,9 @@
             ng-if="$ctrl.server.status === 'stoped'",
             ng-click="$ctrl.start()"
           ) Запустить
+          a.btn.btn-default.pull-right(
+            ng-if="$ctrl.server.status === 'started'",
+            ng-click="$ctrl.restart()"
+          ) Перезапустить
   .col-md-3
     a.btn.btn-default.pull-right(ui-sref="servers.edit({id:$ctrl.server._id})") Изменить

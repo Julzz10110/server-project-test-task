@@ -1,5 +1,7 @@
 const express = require('express');
 const moment = require('moment');
+const url = require('url');
+
 
 const {Server, UserAction} = require('../../../models');
 
@@ -67,6 +69,7 @@ serversRouter.delete('/:id', async (req, res) => {
   }
 });
 
+
 serversRouter.get('/:id/start', async (req, res) => {
   try {
     console.log('get start servers id ', req.params.id);
@@ -108,6 +111,28 @@ serversRouter.get('/:id/stop', async (req, res) => {
     res.json({});
   }
 });
+
+serversRouter.get('/:id/restart', async (req, res) => {
+  try {
+    console.log('get restart servers id ', req.params.id);
+    const server = await Server.findOne({
+      _id: req.params.id,
+    });
+    server.status = 'restarting';
+    await server.save();
+    await UserAction.create({
+      serverId: req.params.id,
+      date: moment().format('YYYY-MM-DD HH:mm:ss'),
+      user: 'Тестовый пользователь',
+      action: 'Пользователь инициировал перезапуск сервера',
+    });
+    res.json(server);
+    } catch (err) {
+    console.log(err);
+    res.json({});
+  }
+});
+
 
 module.exports = {
   serversRouter,

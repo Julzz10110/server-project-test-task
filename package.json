@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.25.2",
     "@uirouter/angularjs": "^1.0.26",
     "@webdiscus/pug-loader": "^2.11.0",
     "angular": "^1.8.3",
