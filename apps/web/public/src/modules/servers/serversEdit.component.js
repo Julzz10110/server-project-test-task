@@ -4,10 +4,12 @@ const serversEdit = {
   template: template(),
   controller: [
     'Server',
+    'Group',
     '$stateParams',
     '$state',
     'NotificationService',
-    function(Server, $stateParams, $state, NotificationService) {
+    function(Server, Group, $stateParams, $state, NotificationService) {
+      this.groups = Group.query();
       if ($stateParams.id) {
         this.server = Server.get({id: $stateParams.id});
       } else {

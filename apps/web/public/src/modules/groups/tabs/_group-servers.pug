@@ -1,0 +1,6 @@
+.row
+    .col-md-9
+        table.table.table-bordered
+            tr(ng-repeat="server in $ctrl.filteredServers()")
+                td server name
+                td {{server.name}}

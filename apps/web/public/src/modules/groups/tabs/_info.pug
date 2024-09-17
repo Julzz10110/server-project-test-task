@@ -1,0 +1,8 @@
+.row
+    .col-md-9
+        table.table.table-bordered
+            tr
+                td name
+                td {{$ctrl.group.name}}
+    .col-md-3
+        a.btn.btn-default.pull-right(ui-sref="groups.edit({id:$ctrl.group._id})") Изменить

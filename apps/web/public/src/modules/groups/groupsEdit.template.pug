@@ -1,0 +1,15 @@
+h4 Группа  {{$ctrl.group.name}}
+form.form.form-horizontal(name="editGroupForm")
+  .form-group(ng-class="{ 'has-error':editGroupForm.name.$invalid }")
+    label.control-label.col-md-4 Название
+    .col-md-6
+      input.form-control(name="name", ng-model="$ctrl.group.name", required)
+
+  a.btn.btn-primary.col-md-offset-4(
+    ng-click="editGroupForm.$invalid||$ctrl.save()"
+  ) Сохранить
+  a.btn.btn-danger(
+    ng-if="$ctrl.group._id",
+    ng-click="$ctrl.delete()",
+    style="margin-left: 15px"
+  ) Удалить?

@@ -1,0 +1,19 @@
+.row
+  .col-md-3
+    .panel.panel-default
+      .panel-heading
+        h3 Группы
+          a.label.label-primary.pull-right(
+            ui-sref="groups.create",
+            ui-sref-active="active"
+          ) +
+      .panel-body
+        .list-group
+          button.list-group-item(
+            ng-repeat="group in $ctrl.groups",
+            ui-sref-active="active",
+            ui-sref="groups.view({id:group._id})"
+          )
+            span {{ group.name }}
+  .col-md-9
+    ui-view

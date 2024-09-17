@@ -1,7 +1,5 @@
 const express = require('express');
 const moment = require('moment');
-const url = require('url');
-
 
 const {Server, UserAction} = require('../../../models');
 

@@ -1,0 +1,6 @@
+h4 Группа  {{$ctrl.group.name}}
+uib-tabset
+    uib-tab(heading="Инфо")
+        include tabs/_info
+    uib-tab(heading="Сервера группы" ng-if="$ctrl.servers.$resolved")
+        include tabs/_group-servers
