@@ -8,7 +8,8 @@
     "lint-pug-templates": "npx prettier --write '**/*.pug' --plugin='@prettier/plugin-pug'",
     "lint-fix": "eslint --fix . && npm run lint-pug-templates",
     "build": "npm run build:web:client",
-    "build:web:client": "webpack --config ./apps/web/public/webpack.config.js"
+    "build:web:client": "webpack --config ./apps/web/public/webpack.config.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,7 @@
     "angular-highlightjs": "^0.7.1",
     "angular-resource": "^1.8.3",
     "angular-ui-bootstrap": "^2.5.6",
-    "axios": "^1.6.8",
+    "axios": "^1.7.7",
     "bootstrap": "^3.4.1",
     "chart.js": "^4.2.0",
     "config": "^3.3.8",
@@ -46,6 +47,7 @@
     "eslint": "^8.57.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-no-floating-promise": "^2.0.0",
+    "jest": "^29.7.0",
     "prettier": "^3.2.5",
     "ts-loader": "^9.4.2",
     "webpack": "^5.75.0",
