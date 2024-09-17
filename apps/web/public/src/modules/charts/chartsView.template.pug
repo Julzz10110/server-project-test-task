@@ -1,0 +1,12 @@
+h4 График: {{$ctrl.chart.name}}
+hr
+form.form.form-horizontal(name="dateSelectForm")
+    .form-group(ng-class="{ 'has-error':dateSelectForm.name.$invalid }")
+    label.control-label.col-md-4 Дата
+    .col-md-6
+    input.form-control(name="name", ng-model="$ctrl.dateSelect", required, type='date')
+
+    a.btn.btn-primary.col-md-offset-4(ng-click="dateSelectForm.$invalid||$ctrl.updateChart()") Выбрать
+hr
+.chart-container
+    canvas(height="150px", chart, params="$ctrl.chartParams", ng-if="$ctrl.chart.$resolved")

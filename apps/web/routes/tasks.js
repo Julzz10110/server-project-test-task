@@ -1,17 +1,21 @@
 const express = require('express');
 const moment = require('moment');
 const {Task, Server} = require('../../../models');
+
 const tasksRouter = express.Router();
+
 function findColumnFilter(columns, columnName) {
   const column = columns.find((column) => column.data === columnName);
   if (column) {
     return column.search.value;
   }
 }
+
 tasksRouter.get('/list/:serverId', async (req, res) => {
   const query = {
     serverId: req.params.serverId,
   };
+
   try {
     const rows = await Task.find(query, null, {
       sort: '-date',
@@ -31,10 +35,12 @@ tasksRouter.get('/list/:serverId', async (req, res) => {
     res.status(500).send('');
   }
 });
+
 function getRandomInt(min, max) {
   return min + Math.floor(Math.random() * (max-min));
 }
-tasksRouter.get('/add-random', async (req, res)=>{
+
+tasksRouter.get('/add-random', async (req, res)=> {
   try {
     console.log('get tasks/add-random');
     const servers = await Server.find({});
